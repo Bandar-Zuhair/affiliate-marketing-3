@@ -1,6 +1,20 @@
 // Replace with your Google Apps Script Web App URL 
 let webAppURL = 'https://script.google.com/macros/s/AKfycbyUj6TO0iYSLypeRreYv0u2_aJx_LgSMu4THbNGR5GaBm9z3cGdJCulBangGzb3kxVi/exec';
 
+
+
+/* Insert new click data in the google sheet */
+function insertNewClick(column) {
+  const scriptURL = "https://script.google.com/macros/s/AKfycby0edQ6yhnPiLuA5RKMldFfAmwASGk1lNmmQRF1XstwWAl9EoO3IBSA5ehyd5wa8wXV/exec";
+
+  fetch(`${scriptURL}?column=${column}`)
+      .then(response => response.text())
+      .catch(error => console.error("Error:", error));
+}
+
+
+
+
 // Fetch data from Google Sheets Web App
 async function fetchAndDisplayProducts() {
   try {
@@ -60,14 +74,14 @@ async function fetchAndDisplayProducts() {
         // Add a new showcase product HTML
         let productHtml = `
           <div class="showcase">
-            <a href="${productAffiliateLink}" class="showcase-img-box">
+            <a onclick="insertNewClick(5)" href="${productAffiliateLink}" class="showcase-img-box">
               <img src="${productImage}" width="70" class="showcase-img">
             </a>
             <div class="showcase-content">
-              <a href="${productAffiliateLink}">
+              <a onclick="insertNewClick(5)" href="${productAffiliateLink}">
                 <h4 class="showcase-title">${productName}</h4>
               </a>
-              <a href="${productAffiliateLink}" class="showcase-category">${productTypeName}</a>
+              <a onclick="insertNewClick(5)" href="${productAffiliateLink}" class="showcase-category">${productTypeName}</a>
               <div class="price-box">
                 <p class="price">${productCurrentCost}</p>
                 <del class="old-price">${productOldCost}</del>

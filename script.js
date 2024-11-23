@@ -76,14 +76,14 @@ async function fetchAndDisplayProducts() {
         // Add a new showcase product HTML
         let productHtml = `
           <div class="showcase">
-            <a onclick="insertNewClick('affiliate marketing 3')" href="${productAffiliateLink}" target="_blank" class="showcase-img-box">
+            <a onclick="insertNewClick('affiliate multiple 3')" href="${productAffiliateLink}" target="_blank" class="showcase-img-box">
               <img src="${productImage}" width="70" class="showcase-img">
             </a>
             <div class="showcase-content">
-              <a onclick="insertNewClick('affiliate marketing 3')" href="${productAffiliateLink}" target="_blank">
+              <a onclick="insertNewClick('affiliate multiple 3')" href="${productAffiliateLink}" target="_blank">
                 <h4 class="showcase-title">${productName}</h4>
               </a>
-              <a onclick="insertNewClick('affiliate marketing 3')" href="${productAffiliateLink}" target="_blank" class="showcase-category">${productTypeName}</a>
+              <a onclick="insertNewClick('affiliate multiple 3')" href="${productAffiliateLink}" target="_blank" class="showcase-category">${productTypeName}</a>
               <div class="price-box">
                 <p class="price">${productCurrentCost}</p>
                 <del class="old-price">${productOldCost}</del>

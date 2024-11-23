@@ -4,12 +4,14 @@ let webAppURL = 'https://script.google.com/macros/s/AKfycbyUj6TO0iYSLypeRreYv0u2
 
 
 /* Insert new click data in the google sheet */
-function insertNewClick(column) {
-  const scriptURL = "https://script.google.com/macros/s/AKfycby7IU9p9Eo4EN6eAgcU_WFDPfyKrvxTL5MniXN2WGkChaA_QrWOXZlNQiRdUeEEt5_e/exec";
+function insertNewClick(columnName) {
+  const scriptURL = "https://script.google.com/macros/s/AKfycbyU-p7z3tHF0I1K0GCmjcRG3CaG0NPkGyMPTvhlGPISxwIYrt6ueD7O2iHSza9SPOP3/exec";
 
-  fetch(`${scriptURL}?column=${column}`)
-      .then(response => response.text())
-      .catch(error => console.error("Error:", error));
+  // Trim the column name before passing it
+  fetch(`${scriptURL}?columnName=${encodeURIComponent(columnName.trim())}`)
+    .then(response => response.text())
+    .then(data => console.log("Response:", data))
+    .catch(error => console.error("Error:", error));
 }
 
 
@@ -74,14 +76,14 @@ async function fetchAndDisplayProducts() {
         // Add a new showcase product HTML
         let productHtml = `
           <div class="showcase">
-            <a onclick="insertNewClick(6)" href="${productAffiliateLink}" target="_blank" class="showcase-img-box">
+            <a onclick="insertNewClick('affiliate marketing 3')" href="${productAffiliateLink}" target="_blank" class="showcase-img-box">
               <img src="${productImage}" width="70" class="showcase-img">
             </a>
             <div class="showcase-content">
-              <a onclick="insertNewClick(6)" href="${productAffiliateLink}" target="_blank">
+              <a onclick="insertNewClick('affiliate marketing 3')" href="${productAffiliateLink}" target="_blank">
                 <h4 class="showcase-title">${productName}</h4>
               </a>
-              <a onclick="insertNewClick(6)" href="${productAffiliateLink}" target="_blank" class="showcase-category">${productTypeName}</a>
+              <a onclick="insertNewClick('affiliate marketing 3')" href="${productAffiliateLink}" target="_blank" class="showcase-category">${productTypeName}</a>
               <div class="price-box">
                 <p class="price">${productCurrentCost}</p>
                 <del class="old-price">${productOldCost}</del>
